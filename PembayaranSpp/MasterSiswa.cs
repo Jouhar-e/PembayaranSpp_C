@@ -26,6 +26,8 @@ namespace PembayaranSpp
         {
             dataGridView1.DataSource = md.getData("SELECT * FROM siswa WHERE siswa LIKE '%" + textBox1.Text + "%'");
             md.clearForm(groupBox2);
+            sql = "SELECT * FROM siswa";
+            lJumlahSiswa.Text = md.getCount(sql).ToString();
             dataGridView1.Columns[0].Visible = false;
             dataGridView1.Columns[1].HeaderText = "Siswa";
             dataGridView1.Columns[2].HeaderText = "Kelas";

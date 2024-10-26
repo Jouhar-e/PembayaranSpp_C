@@ -20,6 +20,7 @@ namespace PembayaranSpp
         LoginControl lg = new LoginControl();
         Laporan lp = new Laporan();
         Module md = new Module();
+        Ucoba coba = new Ucoba();
 
         public string idpetugas = "0";
 
@@ -94,5 +95,14 @@ namespace PembayaranSpp
                 lg.Dock = DockStyle.Fill;
             }
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            panel2.Controls.Clear();
+            panel2.Controls.Add(coba);
+            coba.Dock = DockStyle.Fill; 
+        }
+
+   
     }
 }

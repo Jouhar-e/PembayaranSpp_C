@@ -40,5 +40,10 @@ namespace PembayaranSpp
             panel1.Controls.Add(ms);
             ms.Dock = DockStyle.Fill;
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

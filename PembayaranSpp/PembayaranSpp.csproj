@@ -101,6 +101,12 @@
     <Compile Include="Transaksi.Designer.cs">
       <DependentUpon>Transaksi.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ucoba.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ucoba.Designer.cs">
+      <DependentUpon>Ucoba.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Beranda.resx">
       <DependentUpon>Beranda.cs</DependentUpon>
     </EmbeddedResource>
@@ -134,6 +140,9 @@
     <EmbeddedResource Include="Transaksi.resx">
       <DependentUpon>Transaksi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ucoba.resx">
+      <DependentUpon>Ucoba.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -147,6 +156,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Control\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

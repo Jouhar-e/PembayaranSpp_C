@@ -95,7 +95,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(439, 500);
+            this.dataGridView1.Size = new System.Drawing.Size(445, 500);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -164,7 +164,7 @@
             // 
             // dateTimePicker3
             // 
-            this.dateTimePicker3.CustomFormat = "    dddd, dd MMMM yyyy";
+            this.dateTimePicker3.CustomFormat = "  dddd, dd MMMM yyyy";
             this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker3.Location = new System.Drawing.Point(148, 268);
             this.dateTimePicker3.Name = "dateTimePicker3";
@@ -183,10 +183,12 @@
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.CustomFormat = "        yyyy";
+            this.dateTimePicker2.CustomFormat = "  yyyy";
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker2.Location = new System.Drawing.Point(148, 242);
             this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.dateTimePicker2.ShowUpDown = true;
             this.dateTimePicker2.Size = new System.Drawing.Size(209, 20);
             this.dateTimePicker2.TabIndex = 8;
             // 
@@ -201,10 +203,11 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.CustomFormat = "        MMMM";
+            this.dateTimePicker1.CustomFormat = "MMMM";
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker1.Location = new System.Drawing.Point(148, 216);
             this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.ShowUpDown = true;
             this.dateTimePicker1.Size = new System.Drawing.Size(209, 20);
             this.dateTimePicker1.TabIndex = 6;
             // 

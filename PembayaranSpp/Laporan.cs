@@ -21,7 +21,7 @@ namespace PembayaranSpp
 
         public void awal()
         {
-            string sql = "SELECT idpembayaran, siswa, kelas, jurusan, petugas, jumlahbayar, bulan, tahun, tglbayar FROM vpembayaran WHERE siswa LIKE '%" + textBox1.Text + "%' ORDER BY tglbayar ASC";
+            string sql = "SELECT idpembayaran, siswa, kelas, jurusan, petugas, jumlahbayar, bulan, tahun, tglbayar FROM vpembayaran WHERE siswa LIKE '%" + textBox1.Text + "%' OR petugas LIKE '%" + textBox1.Text + "%' ORDER BY tglbayar ASC";
             //md.pesan(sql);
             dataGridView1.DataSource = md.getData(sql);
             dataGridView1.Columns[0].HeaderText = "ID";
@@ -30,8 +30,8 @@ namespace PembayaranSpp
             dataGridView1.Columns[3].HeaderText = "Jurusan";
             dataGridView1.Columns[4].HeaderText = "Petugas";
             dataGridView1.Columns[5].HeaderText = "Jumlah Bayar";
-            dataGridView1.Columns[6].HeaderText = "Bulan Yang Bayar";
-            dataGridView1.Columns[7].HeaderText = "Tahun Yang Bayar";
+            dataGridView1.Columns[6].HeaderText = "Bulan Yang Di Bayar";
+            dataGridView1.Columns[7].HeaderText = "Tahun Yang Di Bayar";
             dataGridView1.Columns[8].HeaderText = "Tanggal Bayar";
         }
 
