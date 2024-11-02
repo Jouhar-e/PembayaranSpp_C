@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Security.Cryptography;
+using System.IO;
 
 namespace PembayaranSpp
 {
@@ -205,6 +207,75 @@ namespace PembayaranSpp
         public void pesan(string s)
         {
             MessageBox.Show(s);
+        }
+
+        public string sha56(string rawData)
+        {
+            // Create a SHA256 hash from the input data
+            using (SHA256 sha256Hash = SHA256.Create())
+            {
+                // Compute the hash
+                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(rawData));
+
+                // Convert the byte array to a hexadecimal string
+                StringBuilder builder = new StringBuilder();
+                foreach (byte b in bytes)
+                {
+                    builder.Append(b.ToString("x2")); // format as hexadecimal
+                }
+                return builder.ToString();
+            }
+        }
+
+        public string Encrypt(string plainText, string key)
+        {
+            using (Aes aes = Aes.Create())
+            {
+                byte[] keyBytes = Encoding.UTF8.GetBytes(key.PadRight(32).Substring(0, 32)); // Kunci 256-bit
+                aes.Key = keyBytes;
+                aes.GenerateIV();
+
+                using (var ms = new MemoryStream())
+                {
+                    ms.Write(aes.IV, 0, aes.IV.Length); // Menyimpan IV di depan
+                    using (var cryptoStream = new CryptoStream(ms, aes.CreateEncryptor(), CryptoStreamMode.Write))
+                    {
+                        using (var sw = new StreamWriter(cryptoStream))
+                        {
+                            sw.Write(plainText);
+                        }
+                    }
+                    return Convert.ToBase64String(ms.ToArray());
+                }
+            }
+        }
+
+        public string Decrypt(string cipherText, string key)
+        {
+            byte[] fullCipher = Convert.FromBase64String(cipherText);
+            byte[] iv = new byte[16];
+            Array.Copy(fullCipher, 0, iv, 0, iv.Length);
+
+            byte[] cipher = new byte[fullCipher.Length - iv.Length];
+            Array.Copy(fullCipher, iv.Length, cipher, 0, cipher.Length);
+
+            using (Aes aes = Aes.Create())
+            {
+                byte[] keyBytes = Encoding.UTF8.GetBytes(key.PadRight(32).Substring(0, 32));
+                aes.Key = keyBytes;
+                aes.IV = iv;
+
+                using (var ms = new MemoryStream(cipher))
+                {
+                    using (var cryptoStream = new CryptoStream(ms, aes.CreateDecryptor(), CryptoStreamMode.Read))
+                    {
+                        using (var sr = new StreamReader(cryptoStream))
+                        {
+                            return sr.ReadToEnd();
+                        }
+                    }
+                }
+            }
         }
 
     }

@@ -62,12 +62,28 @@ namespace PembayaranSpp
             br.Dock = DockStyle.Fill;
         }
 
+        public void ber()
+        {
+            panel2.Controls.Clear();
+            panel2.Controls.Add(br);
+            br.Dock = DockStyle.Fill;
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
-            groupBox1.Visible = false;
+            //apabila pakai user control
+            //groupBox1.Visible = false;
+            //panel2.Controls.Clear();
+            //panel2.Controls.Add(lg);
+            //lg.Dock = DockStyle.Fill;
+
+
+            //apabila pakai form
+            login l = new login();
+            l.ShowDialog();
             panel2.Controls.Clear();
-            panel2.Controls.Add(lg);
-            lg.Dock = DockStyle.Fill;
+            panel2.Controls.Add(br);
+            br.Dock = DockStyle.Fill;
         }
 
         private void button2_Click(object sender, EventArgs e)

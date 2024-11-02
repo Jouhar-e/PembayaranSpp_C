@@ -61,7 +61,6 @@
             this.label1.Size = new System.Drawing.Size(445, 39);
             this.label1.TabIndex = 0;
             this.label1.Text = "Aplikasi Pembayaran SPP";
-            
             // 
             // panel2
             // 
@@ -159,7 +158,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Pembayaran SPP";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

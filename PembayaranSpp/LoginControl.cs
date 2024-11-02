@@ -26,6 +26,14 @@ namespace PembayaranSpp
 
         private void button1_Click(object sender, EventArgs e)
         {
+            login();
+            //string a = md.Encrypt(textBox1.Text);
+            //textBox2.Text = a;
+            //md.pesan(md.sha56(textBox2.Text));
+        }
+
+        void login()
+        {
             string sql = "SELECT * FROM petugas WHERE username = '" + textBox1.Text + "' AND password = '" + textBox2.Text + "'";
             //md.pesan(md.getCount(sql) + "");
 
@@ -49,7 +57,6 @@ namespace PembayaranSpp
                     md.pesan("Username atau Password salah");
                 }
             }
-
         }
 
         public class DataEventArgs : EventArgs
@@ -76,5 +83,29 @@ namespace PembayaranSpp
             }
         }
 
+        private void LoginControl_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
